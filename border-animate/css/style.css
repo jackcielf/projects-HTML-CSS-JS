@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #000;
+}
+.card {
+    width: 100%;
+    height: 100vh;
+    border: 10px solid;
+    border-image: linear-gradient(
+        darkred,
+        purple,
+        darkblue
+    ) 1;
+    animation: anime 2s ease-in infinite;
+}
+@keyframes anime {
+    50% {
+        border-image: linear-gradient(
+            360deg,
+            #F00,
+            #0F0,
+            #00F
+        ) 1;
+    }
+}

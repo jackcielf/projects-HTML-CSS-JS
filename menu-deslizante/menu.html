@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Criando Menu Deslizante | @jakki_fx</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        /* resetando a fonte */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* estilizando a div orverlay */
+        .overlay {
+            height: 100vh;
+            /* deixando o overlay 100% na vertical */
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .7);
+            opacity: 0;
+            /*iniciando opacidade em 0 */
+            transition: opacity 1s;
+        }
+
+        /* estilizando o botão abrir menu */
+        .menu-open {
+            background: #900;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 20px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        /* estilizando o botão fechar menu */
+        .menu a.menu-close {
+            padding: 8px 0 4px 23px;
+            color: #6B6B6B;
+            display: block;
+            margin: -30px 0 -10px -20px;
+            font-size: 35px;
+            text-decoration: none;
+        }
+
+        /* estilizando o menu em si */
+        .menu {
+            overflow: hidden;
+            background: rgba(0, 0, 0, .95);
+            padding: 40px 0 0 40px;
+            position: fixed;
+            top: 0;
+            right: -290px;
+            /*iniciando o menu com menos 290px para fora do browser*/
+            height: 100%;
+            z-index: 2;
+            transition: 0.5s;
+            width: 250px;
+        }
+
+        /* estilizando o menu + ul */
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+            width: 500px;
+            height: 95%;
+        }
+
+        /* estilizando o menu + ul li + a */
+        .menu ul li a {
+            display: block;
+            border-bottom: 1px solid #131313;
+            padding: 6px 4px 6px 4px;
+            color: #989898;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" class="menu-open">Abrir Menu</a>
+
+    <div class="overlay"></div>
+
+    <div class="menu">
+        <a href="#" class="menu-close">×</a>
+        <ul>
+            <li><a href="#" target="_blank">Google</a></li>
+            <li><a href="#" target="_blank">Yahoo</a></li>
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">Flickr</a></li>
+            <li><a href="#" target="_blank">Instagram</a></li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        $(() => {
+            var menu_width = 290;
+            var menu = $(".menu");
+            var menu_open = $(".menu-open");
+            var menu_close = $(".menu-close");
+            var overlay = $(".overlay");
+
+            menu_open.click(function(e) {
+                e.preventDefault();
+                menu.css({ "right": "0px" });
+                overlay.css({ "opacity": "1", "width": "100%" });
+            });
+
+            menu_close.click(function(e) {
+                e.preventDefault();
+                menu.css({ "right": "-" + menu_width + "px" });
+                overlay.css({ "opacity": "0", "width": "0" });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

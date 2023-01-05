@@ -1,0 +1,35 @@
+.card {
+    width: 300px;
+    height: 400px;
+    background-color: #333;
+    border-radius: 10px;
+    outline: 1px solid rgba(255, 255, 255, .5);
+    outline-offset: -8px;
+    box-shadow: 3px 3px 10px Orgba(0, 0, 0, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image {
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .75s;
+    opacity: .6;
+}
+
+.card:hover .card-image {
+    transform: scale(1.15);
+}
+
+.card-title {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: whitesmoke;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .6);
+}
